@@ -96,20 +96,43 @@ var specialCharacters = [
     var lowerCasedCharacters = confirm('Would you like to include lowercase letters in your password?');
     var upperCasedCharacters = confirm('Would you like to include uppercase letters in your password?');
 
-    if (NaN(length) || length < 8 || length > 128) {
+    if (characterLength(length) || length < 8 || length > 128) {
       alert('Please enter a valid number between 8 and 128.');
       return;
     }
   }
+  getPasswordOptions();
   
   // Function for getting a random element from an array
   function getRandom(arr) {
-  
+    var randomIndex = Math.floor(Math.random() * specialCharacters.length);
+    return arr[randomIndex];
   }
+  getRandom();
+  
   
   // Function to generate password with user input
   function generatePassword() {
-  
+    if (specialCharacters) {
+      characters = character.concat(specialCharacters);
+    }
+
+    if (numericCharacters) {
+      characters = characters.concat(numericCharacters);
+    }
+
+    if (lowerCasedCharacters) {
+      characters = characters.concat(lowerCasedCharacters);
+    }
+
+    if (upperCasedCharacters) {
+      characters = characters.concat(upperCasedCharacters);
+    }
+
+    for (var i = 0; i < length; i++) {
+      password += getRandomCharacter(characters);
+    }
+    return password;
   }
   
   // Get references to the #generate element
