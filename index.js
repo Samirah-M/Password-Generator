@@ -90,11 +90,17 @@ var specialCharacters = [
   
   // Function to prompt user for password options
   function getPasswordOptions() {
-    return specialCharacters;
+    var length = parseInt(prompt('How many characters would you like your password to contain? Please enter a number beween 8 and 128.'));
+    var specialCharacters = confirm('Would you like to include special characters in your password?');
+    var numericCharacters =  confirm('Would you like to include numbers in your password?');
+    var lowerCasedCharacters = confirm('Would you like to include lowercase letters in your password?');
+    var upperCasedCharacters = confirm('Would you like to include uppercase letters in your password?');
+
+    if (NaN(length) || length < 8 || length > 128) {
+      alert('Please enter a valid number between 8 and 128.');
+      return;
+    }
   }
-  console.log(getPasswordOptions);
-  
-  
   
   // Function for getting a random element from an array
   function getRandom(arr) {
