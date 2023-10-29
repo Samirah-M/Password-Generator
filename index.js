@@ -96,7 +96,7 @@ var specialCharacters = [
     var lowerCasedCharacters = confirm('Would you like to include lowercase letters in your password?');
     var upperCasedCharacters = confirm('Would you like to include uppercase letters in your password?');
 
-    if (characterLength(length) || length < 8 || length > 128) {
+    if (length < 8 || length > 128) {
       alert('Please enter a valid number between 8 and 128.');
       return;
     }
@@ -108,25 +108,24 @@ var specialCharacters = [
     var randomIndex = Math.floor(Math.random() * specialCharacters.length);
     return arr[randomIndex];
   }
-  getRandom();
-  
+  getRandom;
   
   // Function to generate password with user input
   function generatePassword() {
     if (specialCharacters) {
-      characters = character.concat(specialCharacters);
+      specialCharacters = specialCharacters.concat(specialCharacters);
     }
 
     if (numericCharacters) {
-      characters = characters.concat(numericCharacters);
+      numericCharacters = numericCharacters.concat(numericCharacters);
     }
 
     if (lowerCasedCharacters) {
-      characters = characters.concat(lowerCasedCharacters);
+      lowerCasedCharacters = lowerCasedCharacters.concat(lowerCasedCharacters);
     }
 
     if (upperCasedCharacters) {
-      characters = characters.concat(upperCasedCharacters);
+      upperCasedCharacters = upperCasedCharacters.concat(upperCasedCharacters);
     }
 
     for (var i = 0; i < length; i++) {
@@ -134,6 +133,7 @@ var specialCharacters = [
     }
     return password;
   }
+  generatePassword();
   
   // Get references to the #generate element
   var generateBtn = document.querySelector('#generate');
